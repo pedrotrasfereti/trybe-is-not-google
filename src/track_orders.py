@@ -26,7 +26,14 @@ class TrackOrders:
         return get_days_never_visited_by_customer(self._data, customer)
 
     def get_busiest_day(self):
-        pass
+        days_open = []
+
+        for row in self._data:
+            curr_day = row["dia"]
+
+            days_open.append(curr_day)
+
+        return max(set(days_open), key=days_open.count)
 
     def get_least_busy_day(self):
         pass
