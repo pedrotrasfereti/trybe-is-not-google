@@ -32,5 +32,18 @@ def get_most_ordered_item_by_customer(data, customer):
     return most_ordered
 
 
+def get_total_burger_ordered_by_customer(data, customer):
+    hamburgers = 0
+
+    for row in data:
+        curr_customer = row["cliente"]
+        curr_order = row["pedido"]
+
+        if curr_customer == customer and curr_order == "hamburguer":
+            hamburgers += 1
+
+    return hamburgers
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
