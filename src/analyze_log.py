@@ -45,5 +45,23 @@ def get_total_burger_ordered_by_customer(data, customer):
     return hamburgers
 
 
+def get_never_ordered_by_customer(data, customer):
+    orders = set()
+    orders_by_customer = set()
+
+    for row in data:
+        curr_customer = row["cliente"]
+        curr_order = row["pedido"]
+
+        orders.add(curr_order)
+
+        if curr_customer == customer:
+            orders_by_customer.add(curr_order)
+
+    never_ordered = orders.difference(orders_by_customer)
+
+    return never_ordered
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
