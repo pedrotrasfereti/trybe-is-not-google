@@ -30,7 +30,8 @@ class InventoryControl:
         for ingredient in self.INGREDIENTS[order]:
             self._needed_ingredients[ingredient] += 1
 
-            if (self._needed_ingredients[ingredient] > self.MINIMUM_INVENTORY[ingredient]):
+            if (self._needed_ingredients[ingredient]
+                > self.MINIMUM_INVENTORY[ingredient]):
                 return False
 
         self._customer_orders.append(customer_order)
@@ -44,8 +45,8 @@ class InventoryControl:
 
         available_ingredients = self.MINIMUM_INVENTORY.copy()
 
-        for ingredient in available_ingredients.keys():
-            available_ingredients[ingredient] -= self._needed_ingredients[ingredient]
+        for ai in available_ingredients.keys():
+            available_ingredients[ai] -= self._needed_ingredients[ai]
 
         for dish in dishes:
             for ingredient in self.INGREDIENTS[dish]:
