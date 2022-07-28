@@ -45,6 +45,24 @@ def get_total_burger_ordered_by_customer(data, customer):
     return hamburgers
 
 
+def get_days_never_visited_by_customer(data, customer):
+    days_open = set()
+    visited_days = set()
+
+    for row in data:
+        curr_day = row["dia"]
+        curr_customer = row["cliente"]
+
+        days_open.add(curr_day)
+
+        if curr_customer == customer:
+            visited_days.add(curr_day)
+
+    never_visited = days_open.difference(visited_days)
+
+    return never_visited
+
+
 def get_never_ordered_by_customer(data, customer):
     orders = set()
     orders_by_customer = set()
