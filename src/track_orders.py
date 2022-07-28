@@ -17,7 +17,7 @@ class TrackOrders:
         self._data.append({"cliente": customer, "pedido": order, "dia": day})
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        return get_most_ordered_item_by_customer(self._data, customer)
 
     def get_never_ordered_per_customer(self, customer):
         pass
