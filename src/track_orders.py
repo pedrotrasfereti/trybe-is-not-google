@@ -36,4 +36,11 @@ class TrackOrders:
         return max(set(days_open), key=days_open.count)
 
     def get_least_busy_day(self):
-        pass
+        days_open = []
+
+        for row in self._data:
+            curr_day = row["dia"]
+
+            days_open.append(curr_day)
+
+        return min(set(days_open), key=days_open.count)
