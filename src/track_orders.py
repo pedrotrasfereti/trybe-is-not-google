@@ -1,7 +1,14 @@
+from .analyze_log import (
+    get_most_ordered_item_by_customer,
+    # get_never_ordered_by_customer,
+    # get_days_never_visited_by_customer
+)
+
+
 class TrackOrders:
     # aqui deve expor a quantidade de estoque
     def __init__(self):
-        self.data = []
+        self._data = []
 
     def __len__(self):
         return len(self._data)
