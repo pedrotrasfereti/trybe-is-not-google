@@ -3,6 +3,9 @@ from csv import DictReader
 
 # csv file helpers
 def read_csv_file(path):
+    if not path.endswith('.csv'):
+        raise FileNotFoundError(f"Extensão inválida: '{path}'")
+
     try:
         with open(path, "r") as file:
             data = DictReader(file, ["cliente", "pedido", "dia"])
@@ -10,7 +13,7 @@ def read_csv_file(path):
             return list(data)
 
     except FileNotFoundError:
-        raise FileNotFoundError("File not found!")
+        raise FileNotFoundError(f"Arquivo inexistente: '{path}'")
 
 
 def write_to_file(path, content):
