@@ -16,7 +16,9 @@ class InventoryControl:
     }
 
     def __init__(self):
-        pass
+        self._customer_orders = []
+        self._needed_ingredients = {ingredient: 0 for ingredient
+            in self.MINIMUM_INVENTORY.keys()}
 
     def add_new_order(self, customer, order, day):
         pass
