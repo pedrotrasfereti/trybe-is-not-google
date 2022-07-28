@@ -18,13 +18,16 @@ def write_to_file(path, content):
 
 
 def get_most_ordered_item_by_customer(data, customer):
-    all_orders = []
+    orders = []
 
     for row in data:
-        if row["cliente"] == customer:
-            all_orders.append(row["pedido"])
+        curr_customer = row["cliente"]
+        curr_order = row["pedido"]
 
-    most_ordered = max(set(all_orders), key=all_orders.count)
+        if curr_customer == customer:
+            orders.append(curr_order)
+
+    most_ordered = max(set(orders), key=orders.count)
 
     return most_ordered
 
