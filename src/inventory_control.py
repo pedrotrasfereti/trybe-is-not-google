@@ -38,4 +38,18 @@ class InventoryControl:
         return customer_order
 
     def get_quantities_to_buy(self):
-        pass
+        dishes = {"hamburguer", "pizza", "misto-quente", "coxinha"}
+
+        unavailable_dishes = set()
+
+        available_ingredients = self.MINIMUM_INVENTORY.copy()
+
+        for ingredient in available_ingredients.keys():
+            available_ingredients[ingredient] -= self._needed_ingredients[ingredient]
+
+        for dish in dishes:
+            for ingredient in self.INGREDIENTS[dish]:
+                if available_ingredients[ingredient] <= 0:
+                    unavailable_dishes.add(dish)
+
+        return dishes - unavailable_dishes
