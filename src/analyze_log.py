@@ -17,5 +17,17 @@ def write_to_file(path, content):
         file.write(content)
 
 
+def get_most_ordered_item_by_customer(data, customer):
+    all_orders = []
+
+    for row in data:
+        if row["cliente"] == customer:
+            all_orders.append(row["pedido"])
+
+    most_ordered = max(set(all_orders), key=all_orders.count)
+
+    return most_ordered
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
