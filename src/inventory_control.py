@@ -31,7 +31,7 @@ class InventoryControl:
             self._needed_ingredients[ingredient] += 1
 
             if (self._needed_ingredients[ingredient]
-                > self.MINIMUM_INVENTORY[ingredient]):
+                    > self.MINIMUM_INVENTORY[ingredient]):
                 return False
 
         self._customer_orders.append(customer_order)
