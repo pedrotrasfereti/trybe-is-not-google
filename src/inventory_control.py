@@ -39,6 +39,9 @@ class InventoryControl:
         return customer_order
 
     def get_quantities_to_buy(self):
+        return self._needed_ingredients
+
+    def get_available_dishes(self):
         dishes = {"hamburguer", "pizza", "misto-quente", "coxinha"}
 
         unavailable_dishes = set()
